@@ -12,7 +12,8 @@ function createWindow() {
     width: 900,
     height: 680,
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: false,
+      preload: path.join(__dirname, 'preload.js'),
     },
   })
 
@@ -37,9 +38,3 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
-// const fs = require('fs')
-// fs.readdir('.', (err, f) => {
-//   const names = f.join('\n')
-
-// })
