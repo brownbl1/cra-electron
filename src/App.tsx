@@ -1,14 +1,12 @@
 import { useState } from 'react'
 import './App.css'
-// import { fs } from './appRuntime'
+import appRuntime from './appRuntime'
 import logo from './logo.svg'
-
-// const fs = window.require('fs')
 
 function App() {
   const [files, setFiles] = useState('')
 
-  window.fs.readdir('.', (_: any, f: any[]) => {
+  appRuntime.readdir('.', (_: any, f: any[]) => {
     const names = f.join('\n')
     setFiles(names)
   })

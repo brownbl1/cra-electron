@@ -1,2 +1,6 @@
 const fs = require('fs')
-window.fs = fs
+const { contextBridge } = require('electron')
+
+contextBridge.exposeInMainWorld('appRuntime', {
+  readdir: fs.readdir,
+})
